@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, ImageBackground, StyleSheet, Pressable } from 'react-native';
 import theme from '../../assets/themes';
+import Avatars from './Avatars';
 
 const Card = ({item}) => {
   return (
@@ -15,7 +16,8 @@ const Card = ({item}) => {
             <Text style={styles.imageSubtitle}>{`Created by ${item.user}`}</Text>
           </View>
           <View>
-            {/* Avatars go here */}
+           {/* Avatars go here */}
+            <Avatars avatars={item.avatars} />
           </View>
         </View>
       </Pressable>
@@ -35,7 +37,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   imageContentContainer: {
-
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
   },
   imageTitle: {
     ...theme.textVariants.h1,

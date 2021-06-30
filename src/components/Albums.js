@@ -4,10 +4,13 @@ import theme from '../../assets/themes/index';
 import albumPage from '../../assets/data/albumPage';
 import Card from './Card';
 
+
 const Albums = ({ navigation }) => {
   return (
     <>
       <ScrollView>
+
+        {/* Photo Card */}
         <View style={StyleSheet.albumContainer}>
           {albumPage.map((item, index) => 
             <View key={index}>
@@ -15,6 +18,8 @@ const Albums = ({ navigation }) => {
             </View>
           )}
         </View>
+
+        
       </ScrollView>
     </>
   );
