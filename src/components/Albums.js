@@ -9,12 +9,11 @@ const Albums = ({ navigation }) => {
   return (
     <>
       <ScrollView>
-
         {/* Photo Card */}
         <View style={StyleSheet.albumContainer}>
           {albumPage.map((item, index) => 
             <View key={index}>
-              <Card item={item} />
+              <Card item={item} navigation={navigation}/>
 
               {/* Add separator if the index is 1 */}
               {index === 1 && <Separator />}
