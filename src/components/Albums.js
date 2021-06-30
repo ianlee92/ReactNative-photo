@@ -3,7 +3,7 @@ import { View, Text, Pressable, ScrollView, StyleSheet } from 'react-native';
 import theme from '../../assets/themes/index';
 import albumPage from '../../assets/data/albumPage';
 import Card from './Card';
-
+import Separator from './Separator';
 
 const Albums = ({ navigation }) => {
   return (
@@ -15,7 +15,11 @@ const Albums = ({ navigation }) => {
           {albumPage.map((item, index) => 
             <View key={index}>
               <Card item={item} />
+
+              {/* Add separator if the index is 1 */}
+              {index === 1 && <Separator />}
             </View>
+
           )}
         </View>
 
