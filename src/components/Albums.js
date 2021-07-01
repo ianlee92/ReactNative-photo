@@ -1,12 +1,15 @@
-import React, { useLayoutEffect } from 'react';
+import React, { useLayoutEffect, useRef } from 'react';
 import { View, TouchableOpacity, ScrollView, StyleSheet } from 'react-native';
 import theme from '../../assets/themes/index';
 import albumPage from '../../assets/data/albumPage';
 import Card from './Card';
 import Separator from './Separator';
 import Feather from '@expo/vector-icons/Feather';
+import BottomSheet from 'reanimated-bottom-sheet';
+import BottomSheetContent from './BottomSheetContent';
 
 const Albums = ({ navigation, navigation: { setOptions } }) => {
+  const SheetRef = useRef();
 
   useLayoutEffect(() => {
     setOptions({
@@ -19,6 +22,8 @@ const Albums = ({ navigation, navigation: { setOptions } }) => {
       )
     })
   })
+
+  const renderBottomSheetContent = () => <BottomSheetContent />
 
   return (
     <>
@@ -35,9 +40,15 @@ const Albums = ({ navigation, navigation: { setOptions } }) => {
 
           )}
         </View>
-
-        
       </ScrollView>
+
+      <BottomSheet
+        ref={SheetRef}
+        snapPoints={[250, 0]}
+        initialSnap={0}
+        borderRadius={10}
+        renderContent={renderBottomSheetContent}
+      />
     </>
   );
 };
