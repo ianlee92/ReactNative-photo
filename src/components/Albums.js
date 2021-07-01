@@ -14,7 +14,7 @@ const Albums = ({ navigation, navigation: { setOptions } }) => {
   useLayoutEffect(() => {
     setOptions({
       headerRight: () => (
-        <TouchableOpacity onPress={() => console.log('hello')}>
+        <TouchableOpacity onPress={openBottomSheet}>
           <View style={styles.openSheetButton}>
             <Feather name="plus" size={16} color={theme.colors.white} />
           </View>
@@ -23,8 +23,15 @@ const Albums = ({ navigation, navigation: { setOptions } }) => {
     })
   })
 
-  const renderBottomSheetContent = () => <BottomSheetContent />
-
+  const renderBottomSheetContent = () => <BottomSheetContent handleClose={closeBottomSheet} />
+  
+  const openBottomSheet = () => {
+    SheetRef.current.snapTo(0);
+  }
+  
+  const closeBottomSheet = () => {
+    SheetRef.current.snapTo(1);
+  }
   return (
     <>
       <ScrollView>
@@ -45,7 +52,7 @@ const Albums = ({ navigation, navigation: { setOptions } }) => {
       <BottomSheet
         ref={SheetRef}
         snapPoints={[250, 0]}
-        initialSnap={0}
+        initialSnap={1} // 0이면 open, 1이면 close
         borderRadius={10}
         renderContent={renderBottomSheetContent}
       />

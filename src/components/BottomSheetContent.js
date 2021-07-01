@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import theme from '../../assets/themes';
-const BottomSheetContent = () => {
+const BottomSheetContent = ({ handleClose }) => {
   return (
     <View style={styles.contentWrapper}>
       <TouchableOpacity onPress={() => alert("create a new album!")}
@@ -10,8 +10,9 @@ const BottomSheetContent = () => {
         <Text style={styles.buttonTitle}>Create a new album</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={() => alert("Close")}
-      style={styles.buttonSmall}
+      <TouchableOpacity
+        onPress={handleClose}
+        style={styles.buttonSmall}
       >
         <Text style={styles.buttonTitle}>Cancel</Text>
       </TouchableOpacity>
