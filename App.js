@@ -1,6 +1,5 @@
 import 'react-native-gesture-handler';
 import React, { useState } from 'react';
-import { Text, View } from 'react-native';
 import AppLoading from 'expo-app-loading';
 import * as Font from 'expo-font';
 import Feather from '@expo/vector-icons/Feather'
@@ -10,6 +9,7 @@ import Navigator from './src/navigation';
 import { LogBox } from 'react-native';
 
 LogBox.ignoreLogs(['VirtualizedLists']);
+
 // The theme we'll be using for our navigator
 const MyTheme = {
   ...DefaultTheme,
