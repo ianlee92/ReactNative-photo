@@ -6,5 +6,5 @@
 - react native navigation  
 https://reactnavigation.org/  
 
-- react native reanimated bottom sheet
+- react native reanimated bottom sheet  
 https://github.com/osdnk/react-native-reanimated-bottom-sheet
